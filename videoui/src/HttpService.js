@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { api } from '../config/config';
 
 class HttpService {
   static getPlaylistById(id) {
     return new Promise((resolve, reject) => {
-      axios.get(`http://192.168.1.2:3000/api/playlists/${id}`).then((res) => {
+      axios.get(`${api}/playlists/${id}`).then((res) => {
         const { data } = res;
         resolve(
           data,
@@ -17,7 +18,7 @@ class HttpService {
 
   static getAlbumById(id) {
     return new Promise((resolve, reject) => {
-      axios.get(`http://192.168.1.2:3000/api/albums/${id}`).then((res) => {
+      axios.get(`${api}/albums/${id}`).then((res) => {
         const { data } = res;
         resolve(
           data,
@@ -31,7 +32,7 @@ class HttpService {
 
   static getPlaylists() {
     return new Promise((resolve, reject) => {
-      axios.get('http://192.168.1.2:3000/api/playlists').then((res) => {
+      axios.get(`${api}/playlists`).then((res) => {
         const { data } = res;
         resolve(
           data,
@@ -45,7 +46,7 @@ class HttpService {
 
   static getAlbums() {
     return new Promise((resolve, reject) => {
-      axios.get('http://192.168.1.2:3000/api/albums').then((res) => {
+      axios.get(`${api}/albums`).then((res) => {
         const { data } = res;
         resolve(
           data,
@@ -59,7 +60,7 @@ class HttpService {
 
   static getStatus() {
     return new Promise((resolve, reject) => {
-      axios.get('http://192.168.1.2:3000/api/status').then((res) => {
+      axios.get(`${api}/status`).then((res) => {
         const { data } = res;
         resolve(
           data,

@@ -2,15 +2,18 @@
   <div>
     <h1>Album</h1>
     <p>Hello World from VueJS</p>
-    <ol>
+    <ul class="list-group">
       <li
+        class="list-group-item"
         v-for="(album, index) in albums"
         :item="album" :index="index"
         :key="album._id"
       >
-        <a :href="`/album/${album.plid}`">{{ album.name }}</a>
+        <router-link :to="`/album/${album.plid}`">
+          {{ album.name }}<span v-if="album.artist"> By: {{ album.artist }}</span>
+        </router-link>
       </li>
-    </ol>
+    </ul>
   </div>
 </template>
 

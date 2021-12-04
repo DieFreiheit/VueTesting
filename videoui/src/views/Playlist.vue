@@ -2,15 +2,18 @@
   <div>
     <h1>Playlist</h1>
     <p>Hello World from VueJS</p>
-    <ol>
+    <ul class="list-group">
       <li
+        class="list-group-item"
         v-for="(playlist, index) in playlists"
         :item="playlist" :index="index"
         :key="playlist._id"
       >
-        <a :href="`/playlist/${playlist.plid}`">{{ playlist.name }}</a>
+        <router-link :to="`/playlist/${playlist.plid}`">
+          {{ playlist.name }}<span v-if="playlist.user"> By: {{ playlist.user }}</span>
+        </router-link>
       </li>
-    </ol>
+    </ul>
   </div>
 </template>
 
